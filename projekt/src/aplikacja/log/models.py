@@ -2,14 +2,14 @@ from django.db import models
 
 from django.db import models
 
-from persons.models import Person
+#from persons.models import Person
 
 from django.utils.timezone import now
 
 #from django.utils.translation import ugettext_lazy as lazy
 
 class SignIn(models.Model):
-	who=    models.ForeignKey(Person, on_delete=models.CASCADE)
+#	who=    models.ForeignKey(Person, on_delete=models.CASCADE)
 #	do_you_in=   models.BooleanField(default=True)
 #	do_you_out=   models.BooleanField(default=True)
 	when_in=   models.DateTimeField(default=now) 
@@ -22,7 +22,7 @@ class SignIn(models.Model):
 			
 
 class SignOut(models.Model):
-	who=    models.ForeignKey(Person, on_delete=models.CASCADE)
+#	who=    models.ForeignKey(Person, on_delete=models.CASCADE)
 #	do_you_in=   models.BooleanField(default=True)
 #	do_you_out=   models.BooleanField(default=True)
 	when_out=   models.DateTimeField(default=now) 

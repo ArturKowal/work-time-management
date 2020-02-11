@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'persons',
     'log',
+    'account',
     
 ]
 
@@ -72,6 +73,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'aplikacja.wsgi.application'
 
