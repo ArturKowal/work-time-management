@@ -41,7 +41,7 @@ class MyAccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser):
 	email 					= models.EmailField(verbose_name="email", max_length=60, unique=True)
-	ident					= models.PositiveIntegerField(default=1234, validators=[MinValueValidator(1000), MaxValueValidator(9999)],unique=True)
+	ident					= models.PositiveIntegerField(verbose_name='identyfikator ',default=1234, validators=[MinValueValidator(1000), MaxValueValidator(9999)],unique=True)
 	first_name 				= models.CharField(max_length=30, unique=False)
 	last_name 				= models.CharField(max_length=30, unique=False)
 	position				= models.CharField(verbose_name="Stanowisko ",max_length=40,unique=False,blank=True)
