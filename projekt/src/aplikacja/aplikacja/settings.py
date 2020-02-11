@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     # My_app
 
-    'persons',
     'log',
     'account',
     
