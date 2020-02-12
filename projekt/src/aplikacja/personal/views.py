@@ -9,3 +9,9 @@ def home_screen_view(request):
 	context['accounts'] = accounts
 
 	return render(request, "home.html", context)
+
+	# Search
+#	query = ""
+#	if request.GET:
+#		query = request.GET.get('q', '')
+#		context['query'] = str(query)

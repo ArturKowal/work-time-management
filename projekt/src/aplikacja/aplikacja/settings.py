@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'log',
     'account',
+    'personal',
     
 ]
 
@@ -61,6 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['/Users/artur/Desktop/nowy_zn/work-time-management/projekt/src/templates'],
+        #'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
