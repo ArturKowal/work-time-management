@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Log
 
 class SignInAdmin(admin.ModelAdmin):
-#    list_display = ['who','when_in']
+    list_display = ['who','what','when_in']
     ordering = ['when_in']
 #	pass
 
