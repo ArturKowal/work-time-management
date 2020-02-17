@@ -27,5 +27,5 @@ class Log(models.Model):
 
 #from django.contrib.auth import get_user_model
 # User = get_user_model()
-# u = User.objects.get()
+# u = User.objects.get(ident=1234)
 # u = User.objects.all()

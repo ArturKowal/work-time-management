@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'log',
     'account',
     'personal',
+    'rest_framework',
     
 ]
 
