@@ -29,3 +29,6 @@ class Log(models.Model):
 # User = get_user_model()
 # u = User.objects.get(ident=1234)
 # u = User.objects.all()
+
+
+#Choices are: id, what, when_in, who, who_id

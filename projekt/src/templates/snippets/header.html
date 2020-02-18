@@ -19,6 +19,8 @@
   <h5 class="my-0 mr-md-auto font-weight-normal">
   	{% if request.user.is_authenticated %}
   		<p class="m-auto">Hello, {{request.user.first_name}}{{" "}}{{request.user.last_name}}</p>
+  	{% else %}
+  		<p class="m-auto">Hello anonymous, let's register ! </p>
   	{% endif %}
   </h5>
   <div class="search-bar mt-sm-2 mr-2">

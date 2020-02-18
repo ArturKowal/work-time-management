@@ -1,17 +1,16 @@
 from django.shortcuts import render
 from account.models import Account
+from django.shortcuts import render
+from log.models import Log
 
 
 def home_screen_view(request):
 	
 	context = {}
-	accounts = Account.objects.all()
-	context['accounts'] = accounts
+	logowania = Log.objects.all()
+	context['logowania'] = logowania
 
 	return render(request, "home.html", context)
 
-	# Search
-#	query = ""
-#	if request.GET:
-#		query = request.GET.get('q', '')
-#		context['query'] = str(query)
+
+
