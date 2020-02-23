@@ -16,7 +16,8 @@ def api_detail_who_view(request,ident):
 	#logs = Log.objects.all()
 	if request.method=="GET":
 		serializer = PersonSerializer(person)
-		return Response(serializer.data)
+		return Response({'person': [serializer.data]})
+		#return Response(serializer.data)
 
 
 
