@@ -41,12 +41,3 @@ class AccountUpdateForm(forms.ModelForm):
 		except Account.DoesNotExist:
 			return email
 		raise forms.ValidationError('Email "%s" is already in use.' % account)
-
-
-
-
-
-
-
-
-

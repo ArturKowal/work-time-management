@@ -27,7 +27,7 @@ from log.api import urls as my_logs
 
 urlpatterns = [
     path('admin/', admin.site.urls,name='admin'),
-    path('',home_screen_view,name='home'),
+    path('home/',home_screen_view,name='home'),
     path('register/',registration_view,name='register'),
     path('logout/', logout_views, name='logout'),
     path('account/', account_view, name="account"),

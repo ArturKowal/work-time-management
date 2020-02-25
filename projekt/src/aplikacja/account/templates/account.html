@@ -25,22 +25,7 @@
     margin-bottom: 10px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-  }
-  .form-signin input[type="first_name"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  .form-signin input[type="last_name"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  .form-signin input[type="ident"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+
   .h3{
     text-align: center;
   }
@@ -53,6 +38,7 @@
   <h1 class="h3 mb-3 font-weight-normal">Account</h1>
 
   <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus value={{account_form.initial.email}}>
+
 
   {% for field in account_form %}
       <p>

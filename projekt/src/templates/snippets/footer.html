@@ -4,11 +4,67 @@
 	}
 </style>
 <!-- Footer -->
-<br> <!--<br> czyli przerwa tak jakby pusta linia -->
+ <!--<br> czyli przerwa tak jakby pusta linia -->
 <!--<p> teskt </p>-->
+
+
+
+<html>
+<body>
+<form method="POST">
+{% csrf_token %}
+	<select name="field">
+    <option selected="selected" disabled>Objects on page:</option>
+    <option value="1">Styczeń</option>
+    <option value="2">Luty</option>
+    <option value="3">Marzec</option>
+    <option value="4">Kwiecień</option>
+    <option value="5">Maj</option>
+    <option value="6">Czerwiec</option>
+    <option value="7">Lipiec</option>
+    <option value="8">Sierpień</option>
+    <option value="9">Wrzesień</option>
+    <option value="10">Październik</option>
+    <option value="11">Listopad</option>
+    <option value="12">Grudzień</option>
+  </select>
+<button type="submit">Wybierz</button>
+</form>
+<center>
+<h1>Your list of logs and salary</h1>
+<p> Hello {{request.user.first_name}}, your salary per hour is {{request.user.stake}}. You take the position {{request.user.position}}</p>
+<small>If your salary per hour is 0 or/and postion is not exist contact witch your superior/boss</small>
+<table border="1" width="600">
+<tr>
+<td>Date</td>
+<td>Time of entry</td>
+<td>Exit time</td>
+<td>Total hour</td>
+<td>Salary</td>
+</tr>
+
+
+<tr>
+{% for Log in data %}
+<tr>
+{% for d in Log %}
+	<td>{{ d }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</tr>
+<tr>
+<td>Total salary is {{ total_salary }} zł</td>
+</tr>
+</table></center>
 <br>
 <br>
-<p> teskt </p>
+
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script><script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
+
+
+
 
 <div class="d-flex flex-row align-items-center footer  bg-white border-top shadow-lg">
 	<p class="m-auto">Menedżer czasu pracy | 2020</p>

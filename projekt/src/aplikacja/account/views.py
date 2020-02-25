@@ -29,7 +29,7 @@ def registration_view(request):
 
 def logout_views(request):
 	 logout(request)
-	 return redirect('/')
+	 return redirect("home")
 
 #############################################
 
@@ -73,20 +73,13 @@ def account_view(request):
 		if form.is_valid():
 			form.initial = {
 					"email": request.POST['email'],
-					"first_name": request.POST['first_name'],
-					"ident": request.POST['ident'],
-					"last_name": request.POST['last_name'],
 			}
 			form.save()
 			context['success_message'] = "Updated"
 	else:
 		form = AccountUpdateForm(
-
 			initial={
 					"email": request.user.email, 
-					"first_name": request.user.first_name,
-					"ident": request.user.ident,
-					"last_name": request.user.last_name,
 				}
 			)
 
@@ -99,3 +92,8 @@ def must_authenticate_view(request):
 	return render(request, 'must_authenticate.html', {})
 
 
+
+
+
+
+############################################################################################################
