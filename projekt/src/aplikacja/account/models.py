@@ -41,7 +41,7 @@ class MyAccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser):
 	email 					= models.EmailField(verbose_name="email", max_length=60, unique=True)
-	ident					= models.PositiveIntegerField(verbose_name='identyfikator ',default=1234, validators=[MinValueValidator(1000), MaxValueValidator(9999)],unique=True)
+	ident					= models.PositiveIntegerField(verbose_name='Pin ',default=1234, validators=[MinValueValidator(1), MaxValueValidator(99999)],help_text=" Pin to wartosc od 1 do 99999, będzie to twój pin do aplikacji")
 	first_name 				= models.CharField(max_length=30, unique=False,verbose_name='Imie ')
 	last_name 				= models.CharField(max_length=30, unique=False,verbose_name='Nazwisko ')
 	position				= models.CharField(verbose_name="Stanowisko ",max_length=40,unique=False,blank=True)

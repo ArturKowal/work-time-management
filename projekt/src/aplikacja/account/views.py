@@ -90,10 +90,3 @@ def account_view(request):
 
 def must_authenticate_view(request):
 	return render(request, 'must_authenticate.html', {})
-
-
-
-
-
-
-############################################################################################################

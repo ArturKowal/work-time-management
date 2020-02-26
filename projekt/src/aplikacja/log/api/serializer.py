@@ -7,7 +7,7 @@ User = get_user_model()
 class LogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Log
-        fields = ['who','what']
+        fields = ['who','what',]
 
 
 #from django.contrib.auth import get_user_model

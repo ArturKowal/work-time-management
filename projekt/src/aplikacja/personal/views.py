@@ -8,13 +8,21 @@ from django.contrib.auth import get_user_model
 
 def home_screen_view(request):
 	if request.user.is_authenticated:
+		user_id = request.user.id
 		if request.method == 'POST':
 			month = request.POST.get('field', None)
+			user_id = request.POST.get('chuser', None)
+			try:
+				user_id = int(user_id)
+			except:
+				user_id = request.user.id
 			try:
 				month=int(month)
 			except: month=13 
-		else: month=13 ; start_date=2 ; end_date=2
+		else: month=13 ; start_date=2 ; end_date=2 ; user_id = request.user.id
 
+		User = get_user_model()
+		personality = User.objects.get(id=user_id)
 		#>>> s='2020-02-14'
 		#>>> who=Log.objects.filter(when_in__lte=s,when_in__gte='2020-02-13',who__id=2)
 
@@ -32,11 +40,11 @@ def home_screen_view(request):
 		elif month == 12: start_date = '2020-12-01' ; end_date = '2020-12-31'
 
 		if month>=1 and month<=12:
-			log_in = Log.objects.filter(when_in__lte=end_date,when_in__gte=start_date,who__id=request.user.id,what=True).order_by('when_in')
-			log_out = Log.objects.filter(when_in__lte=end_date,when_in__gte=start_date,who__id=request.user.id,what=False).order_by('when_in')
+			log_in = Log.objects.filter(when_in__lte=end_date,when_in__gte=start_date,who__id=user_id,what=True).order_by('when_in')
+			log_out = Log.objects.filter(when_in__lte=end_date,when_in__gte=start_date,who__id=user_id,what=False).order_by('when_in')
 		else:
-			log_in = Log.objects.filter(who__id=request.user.id,what=True).order_by('when_in')
-			log_out = Log.objects.filter(who__id=request.user.id,what=False).order_by('when_in')
+			log_in = Log.objects.filter(who__id=user_id,what=True).order_by('when_in')
+			log_out = Log.objects.filter(who__id=user_id,what=False).order_by('when_in')
 
 
 
@@ -85,15 +93,25 @@ def home_screen_view(request):
 
 				my_list.append([curr_data,person_in,person_out,how_much_time,salary])
 		total_salary=round(total_salary)
-
+		User = get_user_model()
+		u = User.objects.all()
 		context= {'data': my_list,
 		'total_salary':total_salary,
+		'Users':u,
+		'name': personality,
 		}
+
 		return render(request, 'home.html',context)
 
 
 	if not request.user.is_authenticated:
 		return redirect("login")
+
+
+
+
+
+
 
 
 	#context = {}
@@ -102,7 +120,8 @@ def home_screen_view(request):
 	#return render(request, "home.html", context)
 
 	#from django.contrib.auth import get_user_model
-# User = get_user_model()
+#User = get_user_model()
+#u = User.objects.all()
 # u = User.objects.get(ident=1234)
 # u = User.objects.all()
 

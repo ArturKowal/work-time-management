@@ -4,17 +4,84 @@
 	}
 </style>
 <!-- Footer -->
- <!--<br> czyli przerwa tak jakby pusta linia -->
-<!--<p> teskt </p>-->
+{% if request.user.is_admin %}
+<html>
+<body>
+    <a href="http://127.0.0.1:8000/admin/log/log/" style="float: right;">Log management</a> 
+<a href="http://127.0.0.1:8000/admin/account/account/" style="float: left;">Account management</a>
+<u><b><center><p>You are admin</p></center></b></u>
+
+<form method="POST"> 
+{% csrf_token %}
+<select name="chuser">
+<option value="">---------</option>
+{% for usr in Users %}
+<option value="{{ usr.id }}">{{ usr.first_name }}  {{ usr.last_name }}</option>
+{% endfor %}
+</select>
+
+    <select name="field">
+    <option selected="selected" disabled>Month:   </option>
+    <option value="1">Styczeń</option>
+    <option value="2">Luty</option>
+    <option value="3">Marzec</option>
+    <option value="4">Kwiecień</option>
+    <option value="5">Maj</option>
+    <option value="6">Czerwiec</option>
+    <option value="7">Lipiec</option>
+    <option value="8">Sierpień</option>
+    <option value="9">Wrzesień</option>
+    <option value="10">Październik</option>
+    <option value="11">Listopad</option>
+    <option value="12">Grudzień</option>
+  </select>
+<button type="submit">Wybierz</button>
+</form>
 
 
 
+
+<center>
+<h1>Table logs and salary</h1>
+<p> Table user {{name.first_name}} {{name.last_name}}, salary per hour is {{name.stake}}. Position {{name.position}}</p>
+
+<table border="1" width="600">
+<tr>
+<td>Date</td>
+<td>Entry time</td>
+<td>Exit time</td>
+<td>Total hour</td>
+<td>Salary</td>
+</tr>
+
+
+<tr>
+{% for Log in data %}
+<tr>
+{% for d in Log %}
+    <td>{{ d }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</tr>
+<tr>
+<td>Total salary is {{ total_salary }} zł</td>
+</tr>
+</table></center>
+<br>
+<br>
+</body>
+
+
+
+
+{% else %}
 <html>
 <body>
 <form method="POST">
 {% csrf_token %}
 	<select name="field">
-    <option selected="selected" disabled>Objects on page:</option>
+    <option selected="selected" disabled>Month:   </option>
     <option value="1">Styczeń</option>
     <option value="2">Luty</option>
     <option value="3">Marzec</option>
@@ -33,11 +100,12 @@
 <center>
 <h1>Your list of logs and salary</h1>
 <p> Hello {{request.user.first_name}}, your salary per hour is {{request.user.stake}}. You take the position {{request.user.position}}</p>
+<p>Your ID is {{request.user.id}}, your pin {{request.user.ident}} </p>
 <small>If your salary per hour is 0 or/and postion is not exist contact witch your superior/boss</small>
 <table border="1" width="600">
 <tr>
 <td>Date</td>
-<td>Time of entry</td>
+<td>Entry time</td>
 <td>Exit time</td>
 <td>Total hour</td>
 <td>Salary</td>
@@ -59,7 +127,7 @@
 </table></center>
 <br>
 <br>
-
+{% endif %}
 </body>
 <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script><script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
 

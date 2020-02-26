@@ -14,7 +14,7 @@ class Log(models.Model):
 	)
 	who=    models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Kto ')
 	what = models.BooleanField(verbose_name='Akcja ',choices=CHOICES,default=True)
-	when_in=   models.DateTimeField(verbose_name='Kiedy')#, auto_now_add=True)
+	when_in=   models.DateTimeField(verbose_name='Kiedy', auto_now_add=True)
 #	when_out=   models.DateTimeField(blank=True) 
 #	def __str__(self):
 #		return self.who.first_name + self.last_name 
