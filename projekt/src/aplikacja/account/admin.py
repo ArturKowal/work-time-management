@@ -11,7 +11,7 @@ class AccountAdmin(UserAdmin):
 	list_filter = ()
 	fieldsets = ()
 
+	def has_add_permission(self, request, obj=None):
+		return False
+
 admin.site.register(Account,AccountAdmin)
-
-
-
