@@ -27,7 +27,7 @@ from log.api import urls as my_logs
 
 urlpatterns = [
     path('admin/', admin.site.urls,name='admin'),
-    path('home/',home_screen_view,name='home'),
+    path('',home_screen_view,name='home'),
     path('register/',registration_view,name='register'),
     path('logout/', logout_views, name='logout'),
     path('account/', account_view, name="account"),
@@ -44,8 +44,8 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
      name='password_reset_complete'),
 
-    #Api
-    path('api/',include(accounts)), #api_detail_log_view, name='api')
+    #API
+    path('api/',include(accounts)),
     path('api/post/',include(my_logs)), 
 
 

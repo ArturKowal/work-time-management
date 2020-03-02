@@ -3,7 +3,6 @@
 		min-height: 100px;
 	}
 </style>
-<!-- Footer -->
 {% if request.user.is_admin %}
 <html>
 <body>
@@ -35,11 +34,10 @@
     <option value="11">Listopad</option>
     <option value="12">Grudzień</option>
   </select>
+
+<input type="number" name="year" value="{{year}}">
 <button type="submit">Wybierz</button>
 </form>
-
-
-
 
 <center>
 <h1>Table logs and salary</h1>
@@ -54,12 +52,11 @@
 <td>Salary</td>
 </tr>
 
-
 <tr>
 {% for Log in data %}
 <tr>
 {% for d in Log %}
-    <td>{{ d }}</td>
+    <center><td>{{ d }}</td></center>
 {% endfor %}
 </tr>
 {% endfor %}
@@ -71,9 +68,6 @@
 <br>
 <br>
 </body>
-
-
-
 
 {% else %}
 <html>
@@ -95,6 +89,7 @@
     <option value="11">Listopad</option>
     <option value="12">Grudzień</option>
   </select>
+  <input type="number" name="year" value="{{ year }}">
 <button type="submit">Wybierz</button>
 </form>
 <center>
@@ -110,7 +105,6 @@
 <td>Total hour</td>
 <td>Salary</td>
 </tr>
-
 
 <tr>
 {% for Log in data %}
@@ -129,13 +123,8 @@
 <br>
 {% endif %}
 </body>
-<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script><script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
-
-
-
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) </script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script><script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) </script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
 
 <div class="d-flex flex-row align-items-center footer  bg-white border-top shadow-lg">
 	<p class="m-auto">Menedżer czasu pracy | 2020</p>
 </div>
-<!-- End Footer -->
-

@@ -7,9 +7,6 @@ class AccountAdmin(UserAdmin):
 	search_fields = ( 'first_name','last_name','email','ident')
 	ordering = ('last_name','first_name')
 	readonly_fields= ('date_joined','last_login')
-
-	#fields = ['email','last_name']
-
 	filter_horizontal=()
 	list_filter = ()
 	fieldsets = ()
