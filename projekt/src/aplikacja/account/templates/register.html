@@ -45,7 +45,41 @@
 
 </style>
 
-<center>
+
+<form class="form-signin" method="post">{% csrf_token %}
+  <h1 class="h3 mb-3 font-weight-normal">Register an account</h1>
+
+  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+  <input type="text" name="first_name" id="inputFirstname" class="form-control" placeholder="first_name" required>
+  <input type="text" name="last_name" id="inputLastname" class="form-control" placeholder="last_name" required>
+  <input type="text" name="ident" id="inputIdent" class="form-control" placeholder="Identyfikator" required>
+  
+  <input type="password" name="password1" id="inputPassword1" class="form-control" placeholder="Password" required>
+
+  <input type="password" name="password2" id="inputPassword2" class="form-control" placeholder="Confirm password" required>
+
+  {% for field in registration_form %}
+      <p>
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+  {% endfor %}
+  {% if registration_form.non_field_errors %}
+    <div style="color: red">
+      <p>{{registration_form.non_field_errors}}</p>
+    </div>
+      
+  {% endif %}
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
+</form>
+
+
+
+<!-- <center>
 
 <h2>Register</h2>
 <form method="post">{% csrf_token %}
@@ -66,7 +100,7 @@
   {% endfor %} 
   <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 </form>
-</center>>
+</center>> -->
 
 
 {% endblock content %}
