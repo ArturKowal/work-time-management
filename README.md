@@ -1,4 +1,5 @@
 # Employee Time Tracking System
+# This repository concerns a server-side application created in Django
 ## Introduction:
 This project has been developed as part of an engineering thesis to create an employee time tracking system for small businesses. This system allows for time tracking through a mobile application and a web platform.
 
